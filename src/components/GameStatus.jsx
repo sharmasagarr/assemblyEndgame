@@ -3,16 +3,16 @@ import clsx from "clsx"
 import { languages } from "../languages"
 import { getFarewellText } from "../utils"
 
-export default function GameStatus(props){
+export default function GameStatus({isLastGuessIncorrect, wrongGuessCount, isGameOver, isGameWon, isGameLost}){
 
     function renderGameStatus(){
-        if (!props.isGameOver && props.isLastGuessIncorrect){
+        if (!isGameOver && isLastGuessIncorrect){
             return (
-                <p className="farewell-message">{getFarewellText(languages[props.wrongGuessCount - 1].name)}</p>
+                <p className="farewell-message">{getFarewellText(languages[wrongGuessCount - 1].name)}</p>
             )
         }
         
-        if(props.isGameWon){
+        if(isGameWon){
             return (
                 <>
                     <h2>You won!</h2>
@@ -21,7 +21,7 @@ export default function GameStatus(props){
             )
         }
 
-        if(props.isGameLost){
+        if(isGameLost){
             return (
                 <>
                     <h2>Game Over!</h2>
@@ -34,9 +34,9 @@ export default function GameStatus(props){
     }
 
     const gameStatusClass = clsx("game-status", {
-        won: props.isGameWon,
-        lost: props.isGameLost,
-        farewell: !props.isGameOver && props.isLastGuessIncorrect
+        won: isGameWon,
+        lost: isGameLost,
+        farewell: !isGameOver && isLastGuessIncorrect
     })
     return (
         <section className={gameStatusClass}>

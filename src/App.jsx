@@ -1,6 +1,5 @@
 import './App.css'
 import { useState } from 'react'
-import clsx from 'clsx'
 import Confetti from 'react-confetti'
 import { languages } from './languages'
 import { getRandomWord } from "./utils"
@@ -34,17 +33,6 @@ export default function AssemblyEndgame(){
     setGuessedLetters([])
   }
 
-  function renderKeyboardClass(letter){
-    const isGuessed = guessedLetters.includes(letter)
-    const isCorrect = isGuessed && currentWord.includes(letter)
-    const isWrong = isGuessed && !currentWord.includes(letter)
-    const className = clsx({
-      correct: isCorrect,
-      wrong: isWrong
-    })
-    return className
-  }
-
   return (
     <main>
       {isGameWon && 
@@ -72,8 +60,9 @@ export default function AssemblyEndgame(){
         isGameLost={isGameLost}
       />
       <Keyboard
+        currentWord={currentWord}
+        guessedLetters={guessedLetters}
         isGameOver={isGameOver}
-        getClass={renderKeyboardClass}
         onClick={addGuessedLetters}
       />
      {isGameOver && 
