@@ -19,7 +19,7 @@
 
 ## 📸 Screenshots
 
-| ![Gameplay 1](./src/assets/Image-1.png) | ![Gameplay 2](./src/assets/Image-2.png) |
+| ![Gameplay 1](./src/assets/Image-1.jpg) | ![Gameplay 2](./src/assets/Image-2.jpg) |
 |:--------------------------------------:|:--------------------------------------:|
 | Gameplay 1                           | Gameplay 2                           |
 
